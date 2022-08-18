@@ -1,0 +1,276 @@
+<app-skeleton *ngIf="loaded$ | async" [type]="'card'"></app-skeleton>
+<p-card
+  *ngIf="!(loaded$ | async)"
+  header="Institution Register"
+  class="p-fluid"
+>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+      <label
+        appLabel
+        for="address"
+        label="address"
+        [required]="addressFieId"
+      ></label>
+      <p-dropdown
+        id="address"
+        formControlName="addressId"
+        dataKey="id"
+        [options]="address"
+        optionLabel="name"
+        optionValue="id"
+        placeholder="seleccione"
+        [filter]="true"
+        filterBy="name"
+      >
+        <ng-template pTemplate="item" let-item>
+          {{ item.name }}
+        </ng-template>
+      </p-dropdown>
+      <small
+        appErrorMessage
+        [errors]="addressFieId.errors"
+        [touched]="addressFieId.touched"
+        [dirty]="addressFieId.dirty"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="states"
+        label="states"
+        [required]="stateFieId"
+      ></label>
+      <p-dropdown
+        id="states"
+        formControlName="stateId"
+        dataKey="id"
+        [options]="states"
+        optionLabel="name"
+        optionValue="id"
+        placeholder="seleccione"
+        [filter]="true"
+        filterBy="name"
+      >
+        <ng-template pTemplate="item" let-item>
+          {{ item.name }}
+        </ng-template>
+      </p-dropdown>
+      <small
+        appErrorMessage
+        [errors]="stateFieId.errors"
+        [touched]="stateFieId.touched"
+        [dirty]="stateFieId.dirty"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="acronym"
+        label="acronym"
+        [required]="acronymField"
+      ></label>
+      <input type="text" pInputText id="acronym" formControlName="acronym" />
+      <small
+        appErrorMessage
+        [errors]="acronymField.errors"
+        [touched]="acronymField.touched"
+        [dirty]="acronymField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="cellphone"
+        label="cellphone"
+        [required]="cellphoneField"
+      ></label>
+      <input
+        type="text"
+        pInputText
+        id="cellphone"
+        formControlName="cellphone"
+      />
+      <small
+        appErrorMessage
+        [errors]="cellphoneField.errors"
+        [touched]="cellphoneField.touched"
+        [dirty]="cellphoneField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label appLabel for="code" label="code" [required]="codeField"></label>
+      <input type="text" pInputText id="code" formControlName="code" />
+      <small
+        appErrorMessage
+        [errors]="codeField.errors"
+        [touched]="codeField.touched"
+        [dirty]="codeField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="codeSniese"
+        label="codeSniese"
+        [required]="codeSnieseField"
+      ></label>
+      <input
+        type="text"
+        pInputText
+        id="codeSniese"
+        formControlName="codeSniese"
+      />
+      <small
+        appErrorMessage
+        [errors]="codeSnieseField.errors"
+        [touched]="codeSnieseField.touched"
+        [dirty]="codeSnieseField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="denomination"
+        label="denomination"
+        [required]="denominationField"
+      ></label>
+      <input
+        type="text"
+        pInputText
+        id="denomination"
+        formControlName="denomination"
+      />
+      <small
+        appErrorMessage
+        [errors]="denominationField.errors"
+        [touched]="denominationField.touched"
+        [dirty]="denominationField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label appLabel for="email" label="email" [required]="emailField"></label>
+      <input type="email" pInputText id="email" formControlName="email" />
+      <small
+        appErrorMessage
+        [errors]="emailField.errors"
+        [touched]="emailField.touched"
+        [dirty]="emailField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label appLabel for="logo" label="logo" [required]="logoField"></label>
+      <input type="text" pInputText id="logo" formControlName="logo" />
+      <small
+        appErrorMessage
+        [errors]="logoField.errors"
+        [touched]="logoField.touched"
+        [dirty]="logoField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label appLabel for="name" label="name" [required]="nameField"></label>
+      <input type="text" pInputText id="name" formControlName="name" />
+      <small
+        appErrorMessage
+        [errors]="nameField.errors"
+        [touched]="nameField.touched"
+        [dirty]="nameField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label appLabel for="phone" label="phone" [required]="phoneField"></label>
+      <input type="text" pInputText id="phone" formControlName="phone" />
+      <small
+        appErrorMessage
+        [errors]="phoneField.errors"
+        [touched]="phoneField.touched"
+        [dirty]="phoneField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="shortName"
+        label="shortName"
+        [required]="shortNameField"
+      ></label>
+      <input
+        type="text"
+        pInputText
+        id="shortName"
+        formControlName="shortName"
+      />
+      <small
+        appErrorMessage
+        [errors]="shortNameField.errors"
+        [touched]="shortNameField.touched"
+        [dirty]="shortNameField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label
+        appLabel
+        for="slogan"
+        label="slogan"
+        [required]="sloganField"
+      ></label>
+      <input type="text" pInputText id="slogan" formControlName="slogan" />
+      <small
+        appErrorMessage
+        [errors]="sloganField.errors"
+        [touched]="sloganField.touched"
+        [dirty]="sloganField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="field">
+      <label appLabel for="web" label="web" [required]="webField"></label>
+      <input type="text" pInputText id="web" formControlName="web" />
+      <small
+        appErrorMessage
+        [errors]="webField.errors"
+        [touched]="webField.touched"
+        [dirty]="webField.dirty"
+        class="p-error"
+      ></small>
+    </div>
+    <div class="formgrid grid">
+      <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Cancel"
+          class="p-button-info"
+          icon="pi pi-arrow-left"
+          [loading]="(loaded$ | async)!"
+          (click)="back()"
+        ></button>
+      </div>
+      <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
+        <button
+          pButton
+          pRipple
+          type="submit"
+          label="Save"
+          icon="pi pi-save"
+          [loading]="(loaded$ | async)!"
+        ></button>
+      </div>
+    </div>
+    <div *ngIf="(loaded$ | async)!" class="field">
+      <app-progress-bar></app-progress-bar>
+    </div>
+  </form>
+</p-card>
